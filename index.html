@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tejasvini P | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=IBM+Plex+Mono:wght@500;600&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f6f7f3;
+        --panel: #fffffb;
+        --soft: #eef4f0;
+        --ink: #17211f;
+        --muted: #65736f;
+        --line: rgba(30, 43, 40, 0.12);
+        --accent: #0f766e;
+        --accent-dark: #18332f;
+        --warm: #b54708;
+        --shadow: 0 24px 60px rgba(23, 33, 31, 0.1);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "DM Sans", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at top left, rgba(15, 118, 110, 0.1), transparent 22%),
+          radial-gradient(circle at top right, rgba(181, 71, 8, 0.1), transparent 20%),
+          linear-gradient(180deg, var(--bg), #e6ece6);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        width: min(1180px, calc(100% - 28px));
+        margin: 0 auto;
+        padding: 18px 0 42px;
+      }
+
+      header {
+        position: sticky;
+        top: 14px;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: rgba(255, 255, 252, 0.88);
+        box-shadow: 0 18px 48px rgba(23, 33, 31, 0.08);
+        backdrop-filter: blur(16px);
+      }
+
+      .brand,
+      nav,
+      .actions,
+      .chip,
+      .contact a,
+      .focus,
+      .certificate a {
+        display: flex;
+        align-items: center;
+      }
+
+      .brand {
+        gap: 12px;
+      }
+
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+        color: #fffef8;
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 700;
+      }
+
+      .brand strong {
+        display: block;
+        font-family: "Sora", sans-serif;
+      }
+
+      .brand small,
+      .kicker,
+      .section-title span,
+      .project-type,
+      .certificate span {
+        color: var(--muted);
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      nav a,
+      .button {
+        min-height: 42px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.72);
+        font-weight: 700;
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+        color: #fffef8;
+      }
+
+      main {
+        display: grid;
+        gap: 26px;
+        padding-top: 24px;
+      }
+
+      .hero,
+      section {
+        border: 1px solid var(--line);
+        border-radius: 28px;
+        background: rgba(255, 255, 252, 0.78);
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+        gap: 26px;
+        min-height: calc(100vh - 150px);
+        padding: clamp(24px, 5vw, 54px);
+      }
+
+      .hero-copy {
+        display: grid;
+        align-content: center;
+        gap: 22px;
+      }
+
+      .kicker {
+        width: max-content;
+        max-width: 100%;
+        padding: 9px 13px;
+        border-radius: 999px;
+        background: #d7efe8;
+        color: #0b5f58;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Sora", sans-serif;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(3.2rem, 9vw, 7.2rem);
+        line-height: 0.9;
+      }
+
+      .hero p {
+        max-width: 760px;
+        margin: 0;
+        color: #43504d;
+        font-size: 1.16rem;
+        line-height: 1.75;
+      }
+
+      .actions,
+      .contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .contact a {
+        gap: 7px;
+        color: #44524f;
+        font-weight: 700;
+      }
+
+      .snapshot {
+        display: grid;
+        align-content: space-between;
+        gap: 22px;
+        padding: 26px;
+        border: 1px solid rgba(15, 118, 110, 0.16);
+        border-radius: 22px;
+        background:
+          linear-gradient(135deg, rgba(15, 118, 110, 0.12), transparent 42%),
+          linear-gradient(180deg, #ffffff, #f0f4ef);
+      }
+
+      .metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .metrics div,
+      .card,
+      .timeline,
+      .certificate {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: var(--panel);
+        padding: 20px;
+      }
+
+      .metrics strong {
+        display: block;
+        font-family: "Sora", sans-serif;
+        font-size: 2rem;
+      }
+
+      .metrics span,
+      .card p,
+      .timeline p,
+      .viewer p {
+        color: var(--muted);
+      }
+
+      .focus {
+        gap: 16px;
+        padding: 20px;
+        border-radius: 18px;
+        color: #f9fffc;
+        background: linear-gradient(135deg, var(--accent-dark), #27645d);
+      }
+
+      .focus p {
+        color: rgba(249, 255, 252, 0.78);
+        font-size: 1rem;
+      }
+
+      section {
+        padding: clamp(22px, 4vw, 42px);
+      }
+
+      .section-title {
+        margin-bottom: 20px;
+      }
+
+      .section-title h2 {
+        margin: 7px 0 0;
+        font-size: clamp(1.7rem, 3vw, 2.6rem);
+      }
+
+      .grid {
+        display: grid;
+        gap: 16px;
+      }
+
+      .grid.skills {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .grid.projects {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .grid.certs {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(300px, 0.85fr);
+        gap: 22px;
+      }
+
+      .card h3,
+      .timeline h3,
+      .certificate h3 {
+        margin: 12px 0 10px;
+        font-size: 1.14rem;
+      }
+
+      .card p,
+      .timeline p {
+        margin: 0;
+        line-height: 1.65;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .tags span {
+        border-radius: 999px;
+        padding: 8px 10px;
+        background: var(--soft);
+        color: #36524c;
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+
+      .timeline {
+        border-left: 4px solid var(--accent);
+      }
+
+      .timeline span {
+        color: var(--warm);
+        font-weight: 800;
+      }
+
+      .certificate {
+        min-height: 180px;
+      }
+
+      .certificate a {
+        width: max-content;
+        gap: 8px;
+        margin-top: 16px;
+        color: var(--accent);
+        font-weight: 800;
+      }
+
+      .viewer {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      iframe {
+        width: 100%;
+        min-height: 420px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: white;
+      }
+
+      .viewer div {
+        display: grid;
+        align-content: center;
+        padding: 24px;
+        border: 1px solid rgba(15, 118, 110, 0.16);
+        border-radius: 20px;
+        background: #f1f6f2;
+      }
+
+      footer {
+        padding: 24px 6px 0;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 980px) {
+        header,
+        .hero,
+        .split,
+        .viewer {
+          grid-template-columns: 1fr;
+        }
+
+        header {
+          position: static;
+          display: grid;
+        }
+
+        nav {
+          justify-content: flex-start;
+        }
+
+        .grid.skills,
+        .grid.certs {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 680px) {
+        .hero {
+          min-height: auto;
+          padding: 22px;
+        }
+
+        h1 {
+          font-size: clamp(3rem, 18vw, 4.2rem);
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .metrics,
+        .grid.skills,
+        .grid.projects,
+        .grid.certs {
+          grid-template-columns: 1fr;
+        }
+
+        iframe {
+          min-height: 320px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <a class="brand" href="#home">
+          <span class="mark">TP</span>
+          <span>
+            <strong>Tejasvini P</strong>
+            <small>AI and Data Science Portfolio</small>
+          </span>
+        </a>
+        <nav aria-label="Portfolio navigation">
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#certificates">Certificates</a>
+          <a href="Tejasvini_P_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        </nav>
+      </header>
+
+      <main>
+        <article class="hero" id="home">
+          <div class="hero-copy">
+            <span class="kicker">AI and Data Science Student</span>
+            <h1>Tejasvini P</h1>
+            <p>
+              Motivated Artificial Intelligence and Data Science student with a strong foundation in programming, web
+              development, databases, and machine learning. I enjoy building practical systems that turn ideas into
+              useful, user-friendly digital products.
+            </p>
+            <div class="actions">
+              <a class="button primary" href="Tejasvini_P_Resume.pdf" download target="_blank" rel="noreferrer">Download Resume</a>
+              <a class="button" href="mailto:ptejasvini728@gmail.com">Contact Me</a>
+            </div>
+            <div class="contact">
+              <a href="tel:+916385332901">+91 6385332901</a>
+              <a href="mailto:ptejasvini728@gmail.com">ptejasvini728@gmail.com</a>
+              <a href="https://github.com/Tejasvini-P" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://linkedin.com/in/Tejasvini-P" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
+          <aside class="snapshot">
+            <div class="metrics">
+              <div><strong>4</strong><span>Projects</span></div>
+              <div><strong>13</strong><span>Certificates</span></div>
+              <div><strong>2</strong><span>Internships</span></div>
+            </div>
+            <div class="focus">
+              <strong>Current Focus</strong>
+              <p>Machine learning, full stack web development, and clean dashboard experiences.</p>
+            </div>
+          </aside>
+        </article>
+
+        <section id="skills">
+          <div class="section-title">
+            <span>Capability</span>
+            <h2>Technical Skills</h2>
+          </div>
+          <div class="grid skills">
+            <article class="card">
+              <h3>Programming</h3>
+              <div class="tags"><span>Python</span><span>Java</span><span>OOP</span><span>Data Structures</span></div>
+            </article>
+            <article class="card">
+              <h3>Web Development</h3>
+              <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Full Stack</span></div>
+            </article>
+            <article class="card">
+              <h3>Data and AI</h3>
+              <div class="tags"><span>Machine Learning</span><span>Deep Learning</span><span>NumPy</span><span>Pandas</span><span>Scikit Learn</span></div>
+            </article>
+            <article class="card">
+              <h3>Databases and Tools</h3>
+              <div class="tags"><span>MySQL</span><span>MongoDB</span><span>Git</span><span>GitHub</span><span>VS Code</span><span>Orange</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section id="projects">
+          <div class="section-title">
+            <span>Selected Work</span>
+            <h2>Projects</h2>
+          </div>
+          <div class="grid projects">
+            <article class="card">
+              <span class="project-type">Full stack secure dashboard</span>
+              <h3>Smart Bus Monitoring System</h3>
+              <p>Built a role-based React and FastAPI system with passenger registration, secure login, live seat status, driver dashboard views, and camera-ready monitoring workflows.</p>
+              <div class="tags"><span>React</span><span>FastAPI</span><span>JWT</span><span>WebSocket</span><span>Camera</span></div>
+            </article>
+            <article class="card">
+              <span class="project-type">Productivity application</span>
+              <h3>Smart Task Manager With Live Updates</h3>
+              <p>Developed a task management application to organize daily work and track activity updates with reminder-driven interactions.</p>
+              <div class="tags"><span>JavaScript</span><span>UI</span><span>Live updates</span></div>
+            </article>
+            <article class="card">
+              <span class="project-type">Location-based utility</span>
+              <h3>Smart Parking Finder</h3>
+              <p>Designed a system concept that helps users locate nearby parking spaces with location-aware search and availability guidance.</p>
+              <div class="tags"><span>Location tracking</span><span>UX</span><span>Database</span></div>
+            </article>
+            <article class="card">
+              <span class="project-type">Realtime monitoring</span>
+              <h3>Dual Tracking System</h3>
+              <p>Built a monitoring system that tracks two processes simultaneously and presents realtime status changes clearly.</p>
+              <div class="tags"><span>Monitoring</span><span>Realtime</span><span>Dashboard</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="split" id="experience">
+          <div>
+            <div class="section-title">
+              <span>Practice</span>
+              <h2>Internship Experience</h2>
+            </div>
+            <div class="grid">
+              <article class="timeline">
+                <span>Intern</span>
+                <h3>Ideadevy Technologies</h3>
+                <p>Worked on responsive web pages using HTML and CSS, following structured frontend modules and improving page-building discipline.</p>
+              </article>
+              <article class="timeline">
+                <span>Intern</span>
+                <h3>Approtech Technologies</h3>
+                <p>Gained hands-on experience in web application development and completed programming and web technology assignments.</p>
+              </article>
+            </div>
+          </div>
+          <div>
+            <div class="section-title">
+              <span>Academic Path</span>
+              <h2>Education</h2>
+            </div>
+            <div class="grid">
+              <article class="card"><h3>PSR Engineering College</h3><p>Bachelor of Technology in Artificial Intelligence and Data Science</p></article>
+              <article class="card"><h3>Thamarai International School</h3><p>Higher Secondary Certificate</p></article>
+              <article class="card"><h3>Vels Public School</h3><p>Secondary School Leaving Certificate</p></article>
+            </div>
+          </div>
+        </section>
+
+        <section id="certificates">
+          <div class="section-title">
+            <span>Proof of Learning</span>
+            <h2>Certificates</h2>
+          </div>
+          <div class="grid certs">
+            <article class="certificate">
+              <span>Internshala</span>
+              <h3>Machine Learning Certification</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>Udemy</span>
+              <h3>100 Days of Code: Python Pro Bootcamp</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>Ideadevy Technologies</span>
+              <h3>Full Stack Web Development Internship</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>Approtech R&amp;D Solutions</span>
+              <h3>Full Stack Development (Java) Internship</h3>
+              <a href="Tejasvini_P_certificate.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>Finest Coder · Hackshpere 2025</span>
+              <h3>Winner — Smart Parking Finder (Spot Finder)</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>Mepco Schlenk Engineering College</span>
+              <h3>Gyan Mitra '26 — National Techno-Management Symposium</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>National Engineering College · NEC Tech Fest 2K25</span>
+              <h3>Workshop — Cloud Solution with Oracle Apex</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>National Engineering College · NEC Tech Fest 2K25</span>
+              <h3>Appreciation — Linkage Event (ECE Dept)</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>National Engineering College · NEC Tech Fest 2K25</span>
+              <h3>Workshop — Next-Gen Learning (CSE Dept)</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>National Engineering College · NEC Tech Fest 2K25</span>
+              <h3>Appreciation — AI BuildersSprint (AI&amp;DS Dept)</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>PSR Engineering College · Skyscraperz 2K24</span>
+              <h3>National Level Technical Symposium — Civil Dept</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>PSR Engineering College · National Science Day 2024</span>
+              <h3>First Place — Connexion Event</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+            <article class="certificate">
+              <span>ISTE Tamilnadu Section · PSR Engineering College</span>
+              <h3>Workshop — Generative AI &amp; Applications</h3>
+              <a href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">View certificate →</a>
+            </article>
+          </div>
+          <div class="viewer">
+            <iframe src="Tejasvini_P_certificate.pdf#toolbar=0" title="Certificate preview"></iframe>
+            <div>
+              <h3>All Certificates</h3>
+              <p>The preview on the left shows the Approtech internship completion certificate. Open the full PDF to view all certificates and achievements.</p>
+              <a class="button primary" href="Tejasvini_P_certificates_full.pdf" target="_blank" rel="noreferrer">Open Full Certificates PDF</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>Tejasvini P Portfolio</footer>
+    </div>
+  </body>
+</html>
